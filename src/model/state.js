@@ -1,3 +1,3 @@
-/**
- * Created by yangmingkun on 1/6/15.
- */
+function State(name) {
+    this.name = name;
+}

@@ -1,3 +1,7 @@
-/**
- * Created by yangmingkun on 1/6/15.
- */
+function Weapon(name, attackPoint, effect) {
+    this.name = name;
+    this.attackPoint = attackPoint;
+    this.effect = effect || '';
+}
+
+module.exports = Weapon;
