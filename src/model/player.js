@@ -8,6 +8,19 @@ function Player(profession, name, hp, attackPoint, state) {
   this.state = state;
 }
 
+Player.prototype.getPlayerAttackText = function(soldier) {
+  var result = '';
+  result = this.profession + this.name + '攻击了' + soldier.profession + soldier.name +
+      ',攻击了' + this.attackPoint + '点伤害,' + soldier.name + '的' + soldier.armor.name +
+      '抵挡了' + soldier.armor.property + '点伤害,' + soldier.name + '还剩' +
+      this.getDefenderHp(soldier) + '点血';
+  return result;
+};
+
+Player.prototype.getDefenderHp = function(soldier) {
+  return soldier.hp -= (this.attackPoint - soldier.armor.property);
+};
+
 Player.prototype.isDead = function() {
   return this.hp <= 0;
 };
