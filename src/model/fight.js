@@ -17,7 +17,7 @@ Fight.prototype.start = function (player1, player2) {
             break;
         }
         if (player2.isDead()) {
-            result += player1.profession + player1.name + '使用最后一击， 把' + player2.name + '死了';
+            result += player1.profession + player1.name + '使用最后一击， 把' + player2.name + '打死了';
             break;
         }
         result += this.roundFight(player1, player2);
