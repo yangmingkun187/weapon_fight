@@ -9,8 +9,9 @@ function Fight() {
 
 Fight.prototype.start = function (player1, player2) {
     var result = '';
-    while (1) {
-
+    while (true) {
+        player1.attack(player2);
+        player2.attack(player1);
         if (player1.isDead()) {
             result += player2.profession + player2.name + '使用最后一击， 把' + player1.name + '打死了';
             break;
@@ -19,7 +20,7 @@ Fight.prototype.start = function (player1, player2) {
             result += player1.profession + player1.name + '使用最后一击， 把' + player2.name + '死了';
             break;
         }
-        this.roundFight(player1, player2);
+        result += this.roundFight(player1, player2);
     }
     return result;
 };

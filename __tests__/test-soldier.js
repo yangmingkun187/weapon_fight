@@ -13,7 +13,7 @@ describe('Soldier', function() {
             var zhang = new Soldier('战士', '张三', 1000, 200, '', weapon);
 
             var text = zhang.getSoldierAttackText(lisi);
-            expect(text).toBe('战士张三用毒剑攻击了普通人李四,李四受到了210点伤害,李四中毒了,李四剩余生命:790\n');
+            expect(text).toBe('战士张三用毒剑攻击了普通人李四,李四受到了210点伤害,李四中毒了,李四剩余生命:1000\n');
         });
     });
 
@@ -27,7 +27,7 @@ describe('Soldier', function() {
             var zhang = new Soldier('战士', '张三', 1000, 200, '', weapon);
 
             var text = zhang.getAttackText(lisi);
-            expect(text).toBe('战士张三用毒剑攻击了普通人李四,李四受到了210点伤害,李四剩余生命:790\n');
+            expect(text).toBe('战士张三用毒剑攻击了普通人李四,李四受到了210点伤害,李四剩余生命:1000\n');
 
         });
     });

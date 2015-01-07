@@ -18,7 +18,7 @@ Soldier.prototype.getSoldierAttackText = function(player) {
     result = this.profession + this.name + '用' + this.weapon.name + '攻击了' +
         player.profession + player.name + ',' + player.name + '受到了' +
         this.getSoldierAttackPoint() + '点伤害,' + player.name + player.state +
-        '了,' + player.name + '剩余生命:' + this.attack(player) + '\n';
+        '了,' + player.name + '剩余生命:' + player.hp + '\n';
     return result;
 };
 
@@ -27,7 +27,7 @@ Soldier.prototype.getAttackText = function(player) {
     result = this.profession + this.name + '用' + this.weapon.name + '攻击了' +
         player.profession + player.name + ',' + player.name + '受到了' +
         this.getSoldierAttackPoint() + '点伤害,' + player.name +
-        '剩余生命:' + this.attack(player) + '\n';
+        '剩余生命:' + player.hp + '\n';
     return result;
 };
 

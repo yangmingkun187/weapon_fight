@@ -14,7 +14,7 @@ describe('player', function() {
             var zhang = new Soldier('战士', '张三', 1000, 200, '', {}, armor);
 
             var text = lisi.getPlayerAttackText(zhang);
-            expect(text).toBe('普通人李四攻击了战士张三,攻击了200点伤害,张三的阿克斯圣光盾抵挡了7点伤害,张三还剩807点血\n');
+            expect(text).toBe('普通人李四攻击了战士张三,攻击了200点伤害,张三的阿克斯圣光盾抵挡了7点伤害,张三还剩1000点血\n');
         });
     });
 });
