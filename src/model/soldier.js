@@ -14,29 +14,21 @@ Soldier.prototype.attack = function(player) {
 };
 
 Soldier.prototype.getSoldierAttackText = function(player) {
-    result = '';
-    result = this.profession + this.name + '用' + this.weapon.name + '攻击了' +
+    var result = '';
+    var text = '';
+    if(this.weapon.effect.isTrigger()) {
+        player.state = this.weapon.effect.result;
+        text = this.weapon.effect.getEffectState(player);
+    }
+    result += this.profession + this.name + '用' + this.weapon.name + '攻击了' +
         player.profession + player.name + ',' + player.name + '受到了' +
-        this.getSoldierAttackPoint() + '点伤害,' + player.name + player.state +
-        '了,' + player.name + '剩余生命:' + player.hp + '\n';
-    return result;
-};
-
-Soldier.prototype.getAttackText = function(player) {
-    result = '';
-    result = this.profession + this.name + '用' + this.weapon.name + '攻击了' +
-        player.profession + player.name + ',' + player.name + '受到了' +
-        this.getSoldierAttackPoint() + '点伤害,' + player.name +
-        '剩余生命:' + player.hp + '\n';
+        this.getSoldierAttackPoint() + '点伤害,' + text +
+        player.name + '剩余生命:' + player.hp + '\n';
     return result;
 };
 
 Soldier.prototype.getSoldierAttackPoint = function() {
     return this.attackPoint + this.weapon.attackPoint;
-};
-
-Soldier.prototype.getWeaponEffectsOdds = function () {
-  return this.weapon.effect.odds;
 };
 
 module.exports = Soldier;

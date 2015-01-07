@@ -2,15 +2,15 @@ jest.autoMockOff();
 
 describe('fight', function() {
     describe('roundFight', function() {
-        it('should return correct text', function() {
+        it('should return correct text1', function() {
             var Soldier = require('../src/model/soldier');
             var Weapon = require('../src/model/weapon');
             var Player = require('../src/model/player');
-            var Effect = require('../src/model/effect');
             var Fight = require('../src/model/fight');
             var Armor = require('../src/model/armor');
+            var PoisonFireEffect = require('../src/model/poison-fire-effect');
 
-            var effect = new Effect('毒性', 2, 2, 100, '中毒');
+            var effect = new PoisonFireEffect('毒性', 2, 2, 100, '中毒');
             var armor = new Armor('阿克斯圣光盾', 7);
             var weapon = new Weapon('毒剑', 15, effect);
             var lisi = new Player('普通人', '李四', 1000, 200, '');
@@ -23,15 +23,15 @@ describe('fight', function() {
             '普通人李四攻击了战士张三,攻击了200点伤害,张三的阿克斯圣光盾抵挡了7点伤害,张三还剩1000点血\n');
         });
 
-        it('should return correct text', function() {
+        it('should return correct text2', function() {
             var Soldier = require('../src/model/soldier');
             var Weapon = require('../src/model/weapon');
             var Player = require('../src/model/player');
-            var Effect = require('../src/model/effect');
+            var PoisonFireEffect = require('../src/model/poison-fire-effect');
             var Fight = require('../src/model/fight');
             var Armor = require('../src/model/armor');
 
-            var effect = new Effect('毒性', 2, 2, 0, '中毒');
+            var effect = new PoisonFireEffect('毒性', 2, 2, 0, '中毒');
             var armor = new Armor('阿克斯圣光盾', 7);
             var weapon = new Weapon('毒剑', 15, effect);
             var lisi = new Player('普通人', '李四', 1000, 200, '');

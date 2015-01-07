@@ -27,13 +27,7 @@ Fight.prototype.start = function (player1, player2) {
 
 Fight.prototype.roundFight = function(player1, player2) {
     var result = '';
-    var odd = _.random(0, 100);
-    if(player1.getWeaponEffectsOdds() > odd) {
-        player2.state = player1.weapon.effect.result;
-        result += player1.getSoldierAttackText(player2);
-    } else {
-        result += player1.getAttackText(player2);
-    }
+    result += player1.getSoldierAttackText(player2);
     result += State.getPlayerStateText(player1, player2);
     result += player2.getPlayerAttackText(player1);
     return result;
