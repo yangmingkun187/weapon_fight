@@ -1,7 +1,6 @@
 var PoisonFireEffect = require('./poison-fire-effect');
 
-function State(name) {
-    this.name = name;
+function State() {
 }
 
 State.getPlayerStateText = function(player1, player2) {
