@@ -1,4 +1,5 @@
 var player = require('./player');
+var State = require('./state');
 
 function Soldier(profession, name, hp, attackPoint, state, weapon, armor) {
     player.call(this, profession, name, hp, attackPoint, state);
@@ -16,8 +17,11 @@ Soldier.prototype.attack = function(player) {
 Soldier.prototype.getSoldierAttackText = function(player) {
     var result = '';
     var text = '';
+    var effect = this.weapon.effect;
+
     if(this.weapon.effect.isTrigger()) {
-        player.state = this.weapon.effect.result;
+        var state = new State();
+        player.state = state.getPlayerState(player, effect);
         text = this.weapon.effect.getEffectState(player);
     }
     result += this.profession + this.name + '用' + this.weapon.name + '攻击了' +

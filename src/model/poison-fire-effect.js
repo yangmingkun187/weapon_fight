@@ -5,15 +5,10 @@ var _ = require('lodash');
 function PoisonFireEffect(name, damage, effectRound, odds, result) {
     effect.call(this, name, damage, effectRound, odds);
     this.result = result;
-    this.times = 0;
 }
 
 PoisonFireEffect.prototype = Object.create(effect.prototype);
 PoisonFireEffect.prototype.constructor = PoisonFireEffect;
-
-PoisonFireEffect.addTimes = function () {
-    return this.times = this.times
-}
 
 PoisonFireEffect.prototype.getEffectState = function(player) {
     var result = '';
