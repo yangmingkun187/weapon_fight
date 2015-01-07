@@ -5,7 +5,7 @@ function Player(profession, name, hp, attackPoint, state) {
   this.name = name;
   this.hp = _.isUndefined(hp) ? 1000 : hp;
   this.attackPoint = _.isUndefined(attackPoint) ? 200 : attackPoint;
-  this.state = state;
+  this.state = _.isUndefined(state) ? '正常' : state;
 }
 
 Player.prototype.getPlayerAttackText = function(soldier) {
@@ -13,7 +13,7 @@ Player.prototype.getPlayerAttackText = function(soldier) {
   result = this.profession + this.name + '攻击了' + soldier.profession + soldier.name +
       ',攻击了' + this.attackPoint + '点伤害,' + soldier.name + '的' + soldier.armor.name +
       '抵挡了' + soldier.armor.property + '点伤害,' + soldier.name + '还剩' +
-      this.getDefenderHp(soldier) + '点血';
+      this.getDefenderHp(soldier) + '点血\n';
   return result;
 };
 
