@@ -1,6 +1,4 @@
 var effects = require('./../effects');
-var Player = require('./../player');
-var _ = require('lodash');
 
 function PoisonFireEffect(name, damage, effectRound, odds) {
     effects.call(this, name, damage, effectRound, odds);
