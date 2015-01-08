@@ -8,18 +8,24 @@ function Player(profession, name, hp, attackPoint, state) {
   this.state = _.isUndefined(state) ? '' : state;
 }
 
+Player.prototype.judgeStateEffect = function() {
+    return this.state.effectRound > 0 ? 'noJump' : '';
+};
+
+Player.prototype.judgeState = function(player) {
+    if(this.state.effectRound <= 0) {
+        player.state = '';
+    }
+};
+
 Player.prototype.getPlayerAttackText = function(soldier) {
   var result = '';
-  if(this.state !== '' && this.state.judgeState() === true) {
+
+  if(this.state !== '' && this.judgeStateEffect() === 'noJump') {
       result += this.state.getStateText(this);
-      this.state.judgeStateEffect(this);
-  } else if(this.state !== '' && this.state.judgeState() === false) {
-      result += this.state.getStateText(this);
-      this.attack(soldier);
       result += this.getStrings(soldier);
-      this.state.judgeStateEffect(this);
+      this.judgeState(this);
   } else {
-      this.attack(soldier);
       result += this.getStrings(soldier);
   }
   return result;

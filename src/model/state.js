@@ -1,29 +1,31 @@
-var FirePoisonState = require('./poison-fire-effect');
+var FirePoisonState = require('./state/firePoisonState');
 
 function State(name, damage, effectRound) {
     this.name = name;
     this.damage = damage;
     this.effectRound = effectRound;
+    this.times = 1;
 }
 
-State.prototype.getPlayerState = function(player, effect) {
+State.prototype.getPlayerState = function(player) {
     var result;
-    if(effect.name === '中毒' || effect.name === '着火') {
-        result = this.getFirePoisonState(player, effect);
+
+    if(this.name === '毒性' || this.name === '火焰') {
+        result = this.getFirePoisonState(player);
     }
     return result;
 };
 
-State.prototype.getFirePoisonState = function (player, effect) {
-    var result;
-    if(player.state.name === '中毒' || player.state.name === '着火') {
+State.prototype.getFirePoisonState = function (player) {
+    var effect;
+    if((player.state.name === '中毒' || player.state.name === '火焰') && player.state !== '') {
         player.state.times ++;
-        player.state.effectRound = effect.effectRound;
-        result = player;
+        player.state.effectRound = this.effectRound;
+        effect = player.state;
     } else {
-        result = new FirePoisonState(effect.name, effect.damage, effect.effectRound);
+        effect = new FirePoisonState(this.name, this.damage, this.effectRound, this.times);
     }
-    return result;
+    return effect;
 };
 
 module.exports = State;

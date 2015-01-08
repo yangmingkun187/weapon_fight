@@ -10,7 +10,7 @@ describe('Soldier', function() {
         Soldier = require('../src/model/soldier');
         Weapon = require('../src/model/weapon');
         Player = require('../src/model/player');
-        PoisonFireEffect = require('../src/model/poison-fire-effect');
+        PoisonFireEffect = require('../src/model/effect/poison-fire-effect');
     });
     describe('getSoldierAttackText', function() {
         it('should return correct text', function() {

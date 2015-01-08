@@ -20,9 +20,9 @@ Soldier.prototype.getSoldierAttackText = function(player) {
     var effect = this.weapon.effect;
 
     if(this.weapon.effect.isTrigger()) {
-        var state = new State();
+        var state = new State(effect.name, effect.damage, effect.effectRound);
         player.state = state.getPlayerState(player, effect);
-        text = this.weapon.effect.getEffectState(player);
+        text = effect.getEffectState(player);
     }
     result += this.profession + this.name + '用' + this.weapon.name + '攻击了' +
         player.profession + player.name + ',' + player.name + '受到了' +
