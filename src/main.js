@@ -5,12 +5,13 @@ var Soldier = require('./model/soldier');
 var Fight = require('./model/fight');
 var Effects = require('./model/effects');
 var PoisonFireEffect = require('./model/effect/poison-fire-effect');
+var VertigoEffect = require('./model/effect/vertigoEffect');
 
 function main() {
     var result = '';
     var armor = new Armor('阿克斯圣光盾', 7);
-    var poisonFireEffect = new PoisonFireEffect('毒性', 2, 2, 50);
-    var weapon = new Weapon('毒剑', 15, poisonFireEffect);
+    var vertigoEffect = new VertigoEffect('眩晕', 2, 2, 100);
+    var weapon = new Weapon('晕锤', 15, vertigoEffect);
     var zhang = new Player('普通人', '李四', 1000, 200, '');
     var lisi = new Soldier('战士', '张三', 1000, 200, '',weapon, armor);
     var fight = new Fight();

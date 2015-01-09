@@ -11,4 +11,8 @@ VertigoEffect.prototype.getEffectState = function(player) {
     return player.name + '晕倒了,';
 };
 
+VertigoEffect.prototype.NoAttackState = function(player) {
+    return player.state.effectRound > 0 ? 'Attack' : '';
+};
+
 module.exports = VertigoEffect;

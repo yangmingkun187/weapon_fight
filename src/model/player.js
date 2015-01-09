@@ -20,12 +20,15 @@ Player.prototype.judgeState = function(player) {
 
 Player.prototype.getPlayerAttackText = function(soldier) {
   var result = '';
-
-  if(this.state !== '' && this.judgeStateEffect() === 'Attack') {
+  if(this.state.name === '毒性' || this.state.name === '火焰') {
       result += this.state.getStateText(this);
       result += this.getStrings(soldier);
       this.judgeState(this);
-  } else {
+  } else if(this.state !== '' && this.state.name === '眩晕') {
+      result += this.state.getStateText(this);
+      this.judgeState(this);
+  }
+  else {
       result += this.getStrings(soldier);
   }
   return result;
