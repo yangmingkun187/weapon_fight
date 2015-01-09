@@ -9,7 +9,7 @@ function Player(profession, name, hp, attackPoint, state) {
 }
 
 Player.prototype.judgeStateEffect = function() {
-    return this.state.effectRound > 0 ? 'noJump' : '';
+    return this.state.effectRound > 0 ? 'Attack' : '';
 };
 
 Player.prototype.judgeState = function(player) {
@@ -21,7 +21,7 @@ Player.prototype.judgeState = function(player) {
 Player.prototype.getPlayerAttackText = function(soldier) {
   var result = '';
 
-  if(this.state !== '' && this.judgeStateEffect() === 'noJump') {
+  if(this.state !== '' && this.judgeStateEffect() === 'Attack') {
       result += this.state.getStateText(this);
       result += this.getStrings(soldier);
       this.judgeState(this);

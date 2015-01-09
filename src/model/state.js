@@ -6,6 +6,9 @@ function State(name, damage, effectRound) {
     this.effectRound = effectRound;
     this.times = 1;
 }
+State.prototype.getStateText = function() {
+
+};
 
 State.prototype.getPlayerState = function(player) {
     var result;
@@ -18,7 +21,7 @@ State.prototype.getPlayerState = function(player) {
 
 State.prototype.getFirePoisonState = function (player) {
     var effect;
-    if((player.state.name === '中毒' || player.state.name === '火焰') && player.state !== '') {
+    if((player.state.name === '毒性' || player.state.name === '火焰') && player.state !== '') {
         player.state.times ++;
         player.state.effectRound = this.effectRound;
         effect = player.state;
